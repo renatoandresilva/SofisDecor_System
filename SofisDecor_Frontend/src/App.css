@@ -1,0 +1,71 @@
+/* Genaral Styles */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+.hightlight-red {
+    background-color: rgba(223, 22, 22, 0.855) !important;
+}
+
+.hightlight-red span {
+    color: rgb(240, 231, 231);
+}
+
+.btn_cancel {
+    max-width: 99.13px;
+    width: 100%;
+    padding: .5rem 1.2rem;
+    border: .8px solid transparent;
+    border-radius: var(--border_radius_2);
+    background-color: var(--background_color_2);
+    color: var(--color_5);
+    transition: 1s;
+}
+
+.btn_cancel:hover {
+    background-color: #b3aeae;
+}
+
+/* End Genaral Styles  */
+body {
+
+    background-color: var(--background_color_1);
+    color: var(--color_1);
+}
+
+form {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #eee;
+    box-shadow: var(--box_shadow-2);
+}
+
+input {
+    padding: 0.7rem 2rem;
+    border: 0.8px solid rgb(204, 204, 204);
+    border-radius: 6px;
+    width: 100%;
+    box-shadow: var(--box_shadow-3);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 426px) {
+    form {
+        gap: 0;
+    }
+}

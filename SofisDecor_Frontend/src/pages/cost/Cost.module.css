@@ -1,0 +1,386 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px 300px;
+
+}
+
+h1 {
+    width: 100% !important;
+    margin-top: 30px;
+}
+
+.out_page {
+    max-width: 800px;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.out_page span {
+    font-size: 1rem;
+    color: var(--color_2);
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .8s;
+}
+
+.out_page span:hover {
+
+    color: var(--color_0);
+}
+
+.table_container {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    border-radius: 6px;
+    align-self: flex-start;
+    background-color: #252524;
+    margin: 0 auto;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.table,
+.table_header,
+.table_filter,
+.table li {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.table_filter input {
+    box-shadow: none;
+}
+
+.table_container div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+
+.table_container div span {
+    color: #0b4e54;
+    text-align: center;
+    width: 100%;
+}
+
+.table_container li {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.table_header {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    display: flex;
+}
+
+.header_content,
+.li_content {
+    flex: 1;
+}
+
+.li_content {
+
+    border-right: 2px solid #665353;
+}
+
+.header_content span {
+    flex: 1;
+    background-color: #b9b9b6;
+    text-align: center;
+}
+
+.header_untitle {
+
+    background-color: #b9b9b6;
+}
+
+.header_untitle,
+.li_actions {
+    min-width: 120px;
+}
+
+.li_actions {
+    min-width: 120px;
+    display: flex;
+
+}
+
+.li_actions button {
+    padding: 3px 6px;
+    font-size: 12px;
+    font-style: italic;
+    background-color: #665353;
+    border: none;
+    cursor: pointer;
+    pointer-events: painted;
+}
+
+.table_filter {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    position: relative;
+    background-color: #eee;
+}
+
+
+.table_filter input {
+    width: 100%;
+    padding: 8px 20px;
+    border: none;
+    outline: none;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.table_filter input::placeholder {
+    font-size: 300;
+    font-style: italic;
+}
+
+.table_filter button {
+    margin: 0;
+    padding: .5px 2px;
+    background-color: #ccc;
+    position: absolute;
+    right: 15px;
+    border: 0;
+    font-size: 15px;
+}
+
+.table {
+    overflow: auto;
+}
+
+.table_list li {
+    width: 100%;
+}
+
+.table li {
+    background-color: transparent;
+}
+
+.table li span {
+    pointer-events: none;
+}
+
+.table div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    border-bottom: 1px solid #665353;
+}
+
+.table div span {
+    color: #eee;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+}
+
+.table li {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #262828;
+}
+
+.table li span {
+    padding: 10px;
+    max-width: 80px;
+    font-size: 12px;
+}
+
+.confirm_btn {
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    position: absolute;
+    top: -40px;
+    right: 0px;
+    z-index: 5;
+}
+
+.actions_edit {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #c9c6c6;
+    color: #0b4e54;
+    border: none;
+    transition: 1.5s;
+}
+
+.actions_edit:hover {
+    color: #fff;
+    background-color: #a29191c1;
+}
+
+.actions_delete {
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #665353;
+    background-color: #2f2929c1;
+    border: none;
+    transition: 1.5s;
+}
+
+.actions_delete:hover {
+    background-color: #074248;
+    color: #fff;
+}
+
+/* Checkbox */
+.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.check_input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    border-radius: 6px;
+    border: .8px solid #c9c6c6;
+    background-color: #fdfdfd;
+}
+
+.check_input input {
+    display: none;
+}
+
+/* Dropdown */
+.dropdown {
+    width: 100%;
+    position: relative;
+}
+
+.dropdown_input {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.dropdown_input_container {
+    position: relative;
+    border-radius: inherit;
+}
+
+.input_dropdown {
+    min-height: 40px;
+    width: 100%;
+    border: .8px solid #ccc;
+    padding: 10px 20px;
+    border-radius: inherit;
+}
+
+.btn {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+
+    position: absolute;
+    top: 30%;
+    right: 20px;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.options {
+    width: 100%;
+    max-height: 180px;
+    overflow: auto;
+    border-radius: 8px;
+    background-color: #d5d2d2;
+    position: absolute;
+    top: -65px;
+}
+
+.options li {
+    padding: 5px 20px;
+    border-radius: 6px;
+    background-color: #dfdddd;
+    font-size: 13px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options li:hover {
+    text-decoration: underline;
+}
+
+.options li:nth-of-type(2n) {
+    background-color: #d5d2d2;
+
+}
+
+.btn_select {
+    margin: 0;
+    padding: 5px;
+    border: none;
+    color: rgb(45, 44, 44);
+    background-color: transparent;
+}
+
+.btn_select:hover {
+    background-color: transparent;
+}
+
+
+.dropdown_clean {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 28%;
+    right: 5%;
+}
+
+.dropdown_clean:hover {
+    background-color: #ccc;
+}
+
+/* Genral class */
+.display_none {
+    display: none;
+}
+
+.edit,
+.trash {
+    cursor: pointer !important;
+}

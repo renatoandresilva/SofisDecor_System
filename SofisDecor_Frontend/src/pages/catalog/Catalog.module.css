@@ -1,0 +1,132 @@
+.catalog_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+h1,
+h4 {
+
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.link {
+    text-align: right;
+    position: fixed;
+    top: 25%;
+    right: 25%;
+    z-index: 100000;
+}
+
+.link span {
+    transition: .8s;
+    color: var(--color_4);
+}
+
+.link span:hover {
+    color: var(--color_4);
+}
+
+.link span,
+.link h4 {
+    text-align: right;
+    font-style: italic;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.category_info {
+    max-width: 500px;
+    margin-inline: auto;
+    line-height: 1.3em;
+    text-align: center;
+    font-size: clamp(.5em, 100vw, 1.1em);
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.category_info p,
+.category_info p strong {
+    width: clamp(17.5rem, 100%, 30.2456rem);
+    color: var(--color_4);
+}
+
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    max-width: 480.6px;
+    height: 200px;
+    margin: 0px auto;
+}
+
+.category_info {
+    text-align: justify;
+}
+
+.btn {
+    width: 8.0344rem;
+    height: 52.8px;
+    padding: 1.1em 2em;
+    text-align: center;
+    border-radius: 4px;
+    background-color: var(--background_color_7);
+    color: var(--color_0);
+    cursor: pointer;
+    transition: .8s;
+}
+
+.category span:hover {
+    opacity: .6;
+}
+
+/* Responsividade */
+@media screen and (min-width:455px) and (max-width:1024px) {
+    .link {
+        top: 23%;
+        right: 2%;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .catalog_container {
+        padding-inline: 20px;
+    }
+
+    .link {
+        display: none;
+    }
+
+    .category_info {
+        text-align: justify;
+    }
+
+    .btn {
+        width: 6.25rem;
+        height: auto;
+        padding: 1.5 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .btn {
+        width: 80px;
+        height: auto;
+        padding: 1.5 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

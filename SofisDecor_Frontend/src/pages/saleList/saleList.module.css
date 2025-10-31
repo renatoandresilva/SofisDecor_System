@@ -1,0 +1,109 @@
+.wrapper {
+    max-width: 1024px !important;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+    margin-bottom: 200px;
+}
+
+.action_link {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.action_link span {
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .9s;
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(140, 144, 145);
+}
+
+.action_link span:hover {
+    padding: .2rem .4rem;
+    border-radius: 4px;
+    background-color: var(--color_3);
+    color: #ccc;
+    font-weight: 500;
+}
+
+.filter input {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 4px 4px 0px 0px !important;
+}
+
+.table {
+    width: 100%;
+    max-height: 400px;
+    background-color: #b5b4b429;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--background_color_5) transparent;
+}
+
+.table_header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: .4rem 1.5rem;
+    background-color: var(--background_color_3);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table_header span {
+    width: 90px;
+    font-weight: 500;
+    color: var(--color_3);
+}
+
+.table_header span:nth-of-type(6),
+.table_header span:nth-of-type(7) {
+    padding-left: .8rem;
+}
+
+.table_header span:last-child,
+.table_body span:last-child {
+    text-transform: capitalize;
+}
+
+.table_body {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1.5rem;
+    text-align: center;
+    border-bottom: .5px solid #6c6a6a;
+}
+
+.table_body span:first-of-type {
+    color: var(--color_6);
+    cursor: pointer;
+    border-right: .8px solid #6c6a6a;
+}
+
+.table_body span {
+    width: 90px;
+    font-weight: 500;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    color: #938f8f;
+}
+
+.table_body span:nth-of-type(4),
+.table_body span:nth-of-type(5) {
+    justify-content: center;
+}
+
+/* Responseviness */
+@media screen and (max-width: 48rem) {
+    .wrapper {
+        width: max-content;
+        overflow: auto;
+    }
+
+}

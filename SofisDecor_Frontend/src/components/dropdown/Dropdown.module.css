@@ -1,0 +1,111 @@
+.dropdown_input {
+    width: 100%;
+    border-radius: 6px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 10px;
+}
+
+.dropdown_input_container {
+    position: relative;
+    border-radius: inherit;
+}
+
+.input {
+    min-height: 30px;
+    width: 100%;
+    border: .8px solid #ccc;
+    padding: 10px 20px;
+    border-radius: inherit;
+}
+
+.btn {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+
+    position: absolute;
+    top: 30%;
+    right: 20px;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.options {
+    width: 100%;
+    max-height: 180px;
+    overflow: auto;
+    border-radius: 4px;
+    background-color: #d5d2d2;
+    position: absolute;
+    top: -280%;
+}
+
+.options li {
+    padding: 5px 20px;
+    border-radius: 6px;
+    background-color: #dfdddd;
+    font-size: 13px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options li:hover {
+    text-decoration: underline;
+}
+
+.options li:nth-of-type(2n) {
+    background-color: #d5d2d2;
+
+}
+
+.options_filter {
+    width: 100%;
+}
+
+.filter_content {
+
+    width: 100%;
+    position: sticky;
+    z-index: 20;
+}
+
+.btn_select {
+    margin: 0;
+    padding: 5px;
+    border: none;
+    color: rgb(45, 44, 44);
+    background-color: transparent;
+}
+
+.btn_select:hover {
+    background-color: transparent;
+}
+
+.clean {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 16%;
+    right: 5%;
+}
+
+.clean:hover {
+    border-radius: 50%;
+    background-color: #ccc;
+}

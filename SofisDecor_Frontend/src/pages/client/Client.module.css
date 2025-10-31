@@ -1,0 +1,150 @@
+.wrapper {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.getPage {
+    max-width: ;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.getPage span {
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: .9s;
+    font-weight: 500;
+    font-size: 19px;
+    color: rgb(140, 144, 145);
+}
+
+.getPage span:hover {
+    padding: .2rem .4rem;
+    border-radius: 4px;
+    background-color: #4d4949;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.table {
+    margin-bottom: 200px;
+    position: relative;
+}
+
+.filter input,
+.head {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.filter input {
+    box-shadow: none;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: .4rem .8rem;
+    background-color: var(--background_color_3);
+}
+
+.head div {
+    max-width: 155px;
+    width: 100%;
+
+}
+
+.head div span {
+    color: var(--color_3);
+}
+
+.head div.empty {
+    max-width: 100px;
+}
+
+.head div:nth-of-type(4) {
+    padding-left: 30px;
+}
+
+.empty {
+    max-width: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.empty span {
+    text-align: center;
+    flex: 1;
+}
+
+.head span {
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.table_list {
+    max-height: 400px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #b5b4b429;
+    background-color: var(--background_color_5);
+    scrollbar-width: thin;
+    scrollbar-color: var(--background_color_5) transparent;
+}
+
+.table_list_item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1.5px solid #4d4d4c;
+}
+
+.item_col1 {
+    flex: 1;
+    display: flex;
+}
+
+.item_col1 span {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: #ccc;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+.item_col2 {
+    display: flex;
+    gap: 10px;
+    max-width: 100px;
+    border-left: 1.5px solid #4d4d4c;
+    border: none;
+    border-radius: 4px;
+}
+
+.item_col2 button {
+    padding: 5px;
+    background-color: #665353;
+    color: #d9d4d4;
+    border-radius: 4px;
+    height: 28px;
+    border: none;
+}
+
+
+.item_col2 button:hover {
+    background-color: #766e6e;
+}
+
+/*
+    scrollbar-width: thin;
+    scrollbar-color: var(--background_color_5) transparent;
+*/

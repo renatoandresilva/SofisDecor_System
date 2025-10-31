@@ -1,0 +1,76 @@
+:root {
+  --font_family: "Archivo", sans-serif;
+  --line_height: 1.5;
+  --font_weight: 500;
+  --color_0: #eee;
+  --color_1: #246469;
+  --color_2: #969494;
+  --color_3: #165d62;
+  --color_4: #babfc1;
+  --color_5: #10161d;
+  --color_6: #21b0a6;
+  --color_6: #757575;
+  --color_9: #3b4d5f;
+  --background_color_1: #10161d;
+  --background_color_2: #817f7f;
+  --background_color_3: #91918f;
+  --background_color_4: #4d4d4c;
+  --background_color_5: #2f2d2d;
+  --background_color_6: #21b0a6;
+  --background_color_7: #165d62;
+  --background_color_8: #3b4d5f;
+  --background_color_9: #1c518d;
+  --background_color_10: #ff8400;
+  --background_color_11: #27617c;
+  --background_color_12: #b63828;
+
+  --mark_positive_1: #156371b0;
+  --mark_positive_2: #8e2712b0;
+
+
+  --box_shadow-1: 3px 3px 10px 5px #211d1d;
+  --box_shadow-2: 3px 3px 5px 5px #403e3e;
+  --box_shadow-3: 3px 3px 10px 2px #eee;
+  --border_radius_1: 4px;
+  /* usado*/
+  --border_radius_2: 6px;
+  --border_radius_3: 8px;
+}
+
+/*#d7e4e4*, #969494, #0b4e54 #1e2626 , #165d62, #1e2626, #1e2222, #27313e*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Archivo", sans-serif;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color_3);
+}
+
+select {
+  overflow-y: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+option {
+  white-space: initial;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #116f76;
+}
+
+.active_btn {
+  padding: .5rem .7rem;
+  margin-top: 20px;
+  align-self: flex-end;
+}

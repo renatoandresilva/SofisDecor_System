@@ -1,0 +1,159 @@
+/* General */
+.checked {
+    color: rgba(27, 114, 201, 0.738);
+    font-size: 20px;
+}
+
+.unchecked {
+    color: rgba(155, 14, 14, 0.738);
+    font-size: 20px;
+}
+
+.wrapper {
+    position: fixed;
+    top: 10px;
+    left: calc(50% - (40%/2));
+    z-index: 50100;
+
+    width: 40%;
+    max-height: 40%;
+    border-radius: 4px;
+    background-color: #eee;
+    padding: .5rem;
+
+}
+
+.wrapper_list {
+    height: 100%;
+    padding: 5px;
+    border: .8px solid #d7cdcd;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.wrapper_list ul {
+    max-height: 150px;
+    overflow: auto;
+}
+
+
+.list_header {
+    background-color: var(--background_color_5);
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.list_header ul,
+.list_header div {
+    padding: 5px;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.titles li {
+    color: #eee;
+}
+
+.list_header div span {
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--color_0);
+}
+
+.list_header div span {
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--color_0);
+}
+
+.titles,
+.list li div:first-child {
+    flex: 1;
+}
+
+.list_header div:first-child,
+.list li div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_header div:last-child,
+.list li div:last-child {
+    width: 25%;
+    text-align: center;
+    border-left: .8px solid #232121;
+    margin-left: 5px;
+}
+
+.list_header div:last-child span {
+    background-color: var(--background_color_4);
+    border-radius: 3px;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: .5s;
+}
+
+.list_header div:last-child span:hover {
+    background-color: #5d5d5b;
+}
+
+.list_content {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+
+.list_content div:last-child {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 8px;
+    padding-left: 3px;
+}
+
+.list_content div:last-child span {
+    text-transform: capitalize;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.list_content:nth-of-type(2n-1) {
+    background-color: #b9b4b46f;
+    border-radius: 4px;
+}
+
+.edit {
+    color: #336ea2;
+    transition: .5s;
+}
+
+.delete {
+    color: #a23333ab;
+    transition: .5s;
+}
+
+.edit:hover {
+    color: #11406986;
+}
+
+.delete:hover {
+    color: #6c1717b8;
+}
+
+.sum {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+}

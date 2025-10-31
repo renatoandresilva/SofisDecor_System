@@ -1,0 +1,31 @@
+{
+  "name": "sofisdecor_backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun index.ts",
+    "build": "bun build index.ts",
+    "lint": "bunx eslint . --ext .ts",
+    "format": "bunx prettier --write .",
+    "test": "bun test",
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.5",
+    "@types/lodash": "^4.17.20"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "firebase": "^12.4.0",
+    "firebase-admin": "^13.5.0",
+    "lodash": "^4.17.21",
+    "zod": "^4.1.12"
+  }
+}

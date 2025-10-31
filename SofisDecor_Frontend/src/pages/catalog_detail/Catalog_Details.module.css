@@ -1,0 +1,271 @@
+.background {
+    background-color: rgba(6, 52, 125, 0.206);
+}
+
+.negative {
+    border: 1.5px solid red;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.title_container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.action {
+    text-align: right;
+}
+
+.action span {
+    color: var(--color_2);
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition: .8s;
+}
+
+.action span:hover {
+    color: var(--color_0);
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    max-width: 600px;
+}
+
+.form_col_1,
+.form_col_2 {
+    border: none;
+}
+
+.form_col_1,
+.form_col_2 {
+    flex: 1 1 45%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form_col_1 div:nth-of-type(1),
+.form_col_1 div:nth-of-type(2) {
+    width: 100%;
+}
+
+.form_col_1 div:nth-of-type(3),
+.form_col_1 div:nth-of-type(4),
+.form_col_1 div:nth-of-type(5),
+.form_col_1 div:nth-of-type(6),
+.form_col_1 div:nth-of-type(7),
+.form_col_1 div:nth-of-type(8) {
+    flex: 1 0 35%;
+}
+
+.form_col_2 div {
+    width: 100%;
+}
+
+.form_col_2 div:last-child {
+    width: 100%;
+    margin-bottom: 18%;
+}
+
+.form_col_2_actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+
+}
+
+.form_col_2_actions span {
+    cursor: pointer;
+    letter-spacing: .8px;
+}
+
+.form_submit {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    border-radius: var(--border_radius_1);
+}
+
+.description textarea {
+    padding: 10px 10px 0px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: var(--box_shadow-3);
+    border-radius: inherit;
+}
+
+.file_container span {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: var(--border_radius_1);
+    background-color: var(--background_color_3);
+    cursor: pointer;
+    margin-top: 25px;
+    color: var(--color_4);
+}
+
+.form_submit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form_submit span {
+    cursor: pointer;
+    transition: 1s;
+    background-color: var(--background_color_4);
+    padding: .5em 1em;
+    border-radius: var(--border_radius_1);
+    color: var(--color_0);
+}
+
+.form_submit span:hover {
+    background-color: var(--background_color_5);
+}
+
+.images {
+    position: absolute;
+    top: 25%;
+    left: -15%;
+    max-width: 350px;
+    max-height: 250px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 4px;
+}
+
+.images::-webkit-scrollbar {
+    width: 10px;
+}
+
+.images::-webkit-scrollbar-track {
+    color: var(--background_color_5);
+}
+
+.image {
+    flex: 1 0 150px;
+    height: 150px;
+    background-color: #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.image_content {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border_radius_1);
+}
+
+.submit span {
+    margin-right: 10px;
+}
+
+.modal {
+    width: 600px;
+    max-height: 200px;
+    border-radius: var(--border_radius_1);
+    background-color: #eee;
+    position: fixed;
+}
+
+.modal_list {
+    max-height: 117px;
+    overflow-y: auto;
+    padding: 10px 0px;
+    border-radius: inherit;
+}
+
+.modal_header,
+.modal_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+    border-radius: inherit;
+}
+
+.modal_header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: var(--background_color_3);
+}
+
+.modal_header span {
+    color: var(--color_0);
+    background-color: var(--background_color_3);
+}
+
+.header_col2 span {
+    margin-right: 10px;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.header_child1 {
+    width: 100px;
+    text-align: center;
+}
+
+.header_col1,
+.content_col1 {
+    flex: 1 1 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content_col1 {
+    border-bottom: .8px solid #ccc;
+}
+
+.header_col1 span,
+.content_col1 span {
+    padding: 0px 0px 0px 10px;
+}
+
+.header_col2,
+.content_col2 {
+    flex: 1 1 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.header_col2 span,
+.content_col2 span {
+    width: 50px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 556px) {
+    .form_col_1 {
+        width: 100%;
+    }
+
+}

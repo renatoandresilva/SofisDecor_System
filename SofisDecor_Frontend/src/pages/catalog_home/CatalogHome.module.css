@@ -1,0 +1,243 @@
+.catelogHome_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 10px;
+    margin-bottom: 300px;
+}
+
+.linkList_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.manager_catalog {
+    color: var(--color_4);
+}
+
+.catelogHome_container h1 {
+    font-size: clamp(1.3rem, 100vw, 2.2rem);
+}
+
+.getback {
+    margin-right: 20px;
+    font-weight: 500;
+    text-transform: capitalize !important;
+    font-style: italic;
+    font-size: 16px !important;
+}
+
+.dropdown {
+    top: -180px;
+}
+
+.xmark_clean {
+    top: 30%;
+}
+
+.manager_catalog {
+    cursor: pointer;
+    color: #969494;
+    font-size: 15px;
+}
+
+.linkList {
+    width: 143.23px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: -120px;
+}
+
+.linkList li {
+    width: 143.23px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: inherit;
+    border-bottom: 2px solid #b0afaf;
+    margin-top: 8px;
+}
+
+.linkList li:nth-child(2n-1) {
+    width: 143.23px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+.linkList_container li span {
+    font-weight: 500;
+    color: #168ddb;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.linkList_container li span:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.catelogHome_container>div {
+    width: 100%;
+    text-align: right;
+    font-size: 12px;
+}
+
+.catelogHome_container>div p {
+    margin-right: 10px;
+}
+
+.catelogHome_container>div+h1 {
+    margin: 0;
+}
+
+.img {
+    cursor: pointer;
+}
+
+.catelogHome_imgs {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.catelogHome_filter {
+    width: 70%;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+}
+
+.catelogHome_filter input {
+    height: 40px;
+    box-shadow: none;
+}
+
+.catelogHome_imgs li {
+    border-radius: 8px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-bottom: 10%;
+    background-color: #f5f3f3;
+    ;
+    /* box-shadow: 5px 5px 10px 3px #b0afaf; */
+}
+
+.img_container {
+    align-self: stretch;
+    flex: 1;
+    border-radius: inherit;
+}
+
+.img {
+    width: 100%;
+    min-height: 320px;
+    border-radius: inherit;
+    flex-grow: 2;
+}
+
+.catelogHome_imgs ul li div:last-child {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px;
+
+}
+
+.catelogHome_imgs ul li div:last-child>div {
+    display: flex;
+    align-items: center;
+}
+
+.img_info_description {
+    max-width: 500px;
+}
+
+.img_info_description span {
+    text-transform: none;
+}
+
+.img_info_price {
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px !important;
+}
+
+.stamp_info {
+    display: flex;
+    max-width: 300px;
+    margin-bottom: 10px !important;
+    padding: 0 10px;
+}
+
+.stamp_info span {
+    font-weight: normal;
+    text-transform: lowercase;
+    display: inline;
+}
+
+.stamp_info span+span {
+    margin-left: 5px;
+}
+
+.stamp_info span:nth-of-type(3) {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.stamp_arraow {
+    margin-inline: 10px;
+}
+
+.empty {
+    color: rgb(151, 67, 24);
+    font-size: 11px;
+    font-weight: normal;
+    font-style: italic;
+    text-transform: none !important;
+}
+
+@media (max-width: 500px) {
+
+    .catelogHome_container h1 {
+        font-size: clamp(1.3rem, 100vw, 1.5rem);
+    }
+
+    .catelogHome_filter {
+        width: 100%;
+    }
+
+    .catelogHome_imgs ul li div:last-child {
+        flex-direction: column;
+        font-size: clamp(.3rem, 100vw, .9rem);
+    }
+
+    .img_info_description span {
+        border-bottom: 1.5px solid #969494;
+        margin-bottom: 15px;
+    }
+
+    .img_info {
+        padding: 0 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .dropdown {
+        top: -130px;
+        height: 135px;
+
+    }
+}
