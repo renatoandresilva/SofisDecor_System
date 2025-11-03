@@ -117,20 +117,21 @@ const CostDetail = () => {
                     }
                 }
 
-                if ((await fetchSaveFnc(data.action, data.method, data.header, data.body)).sucess) {
+                const fetchData = await fetchSaveFnc(data.action, data.method, data.header, data.body) as { msg: string, sucess: boolean }
+
+                if (fetchData.sucess) {
 
                     setDocForm(doc_Form)
                     setDataCenter(data_center)
                     setIsSave(false)
-                    alert("Ação bem sucedida.")
-                    return
+                    alert(fetchData.msg)
+
                 } else {
 
                     setIsSave(false)
-                    alert('Não foi possível executar essa operação.')
+                    alert(fetchData.msg)
                     return
                 }
-
             }
 
             /* Updateing record in case of array*/
@@ -148,13 +149,15 @@ const CostDetail = () => {
                     }
                 }
 
-                if ((await fetchUpdateOrDeleteFnc(
+                const fetchData = await fetchUpdateOrDeleteFnc(
                     data.action,
                     data.collection,
                     data.method,
                     data.header,
                     data.body
-                )).sucess) {
+                ) as { msg: string, sucess: boolean }
+
+                if (fetchData.sucess) {
 
                     const attr: Attr = {
                         prop: ['docs'],
@@ -176,13 +179,16 @@ const CostDetail = () => {
                         }
                     }
 
-                    if (((await fetchSaveFnc(_data.action, _data.method, _data.header, _data.body)).sucess)) {
+                    const _fetchData = await fetchSaveFnc(_data.action, _data.method, _data.header, _data.body) as { msg: string, sucess: boolean }
 
-                        alert('Atualização bem sucedida.')
+                    if (_fetchData.sucess) {
+
+                        alert(_fetchData.msg)
                         navigate('/cost')
+
                     } else {
 
-                        alert('Erro ao atualizar.')
+                        alert(_fetchData.msg)
                         setIsSave(false)
                     }
                 }
@@ -205,19 +211,21 @@ const CostDetail = () => {
                 }
             }
 
-            if ((await fetchUpdateOrDeleteFnc(
+            const fetchData = await fetchUpdateOrDeleteFnc(
                 data.action,
                 data.collection,
                 data.method,
                 data.header,
                 data.body
-            )).sucess) {
+            ) as { msg: string, sucess: boolean }
 
-                alert('Atualização bem sucedida.')
+            if (fetchData.sucess) {
+
+                alert(fetchData.msg)
                 navigate('/cost')
             } else {
 
-                alert('Erro ao atualizar o registro.')
+                alert(fetchData.msg)
                 setIsSave(false)
             }
 

@@ -26,6 +26,7 @@ router.post('/save', async (req, res) => {
     if (!schema) {
         return res.status(400).json({ msg: "Coleção inválida ou não adiconada ao schemes." });
     }
+    console.log(structure);
 
     const parsed = schema.safeParse(structure);
     if (!parsed.success) {

@@ -13,12 +13,14 @@ import {
   createCharacters,
   get_DocsFunc,
   getRepeatedItems,
-  getUniqueItemsByKey
+  getUniqueItemsByKey,
+  fetchUpdateOrDeleteFnc
 } from '../../interfaces/IUtilis/IUtilitis';
 import {
   ClientData,
   Data_Structure
 } from '../client_detail/ClientSetting';
+import { UpdateOrDelete } from '../../interfaces/InterTypes/Types';
 
 const Client = () => {
 
@@ -46,16 +48,32 @@ const Client = () => {
 
     try {
 
-      await fetch('/sofisdecor/delete/client', {
-        method: "DELETE",
-        headers: {
+      const data: UpdateOrDelete = {
+        action: 'delete',
+        collection: 'client',
+        method: 'DELETE',
+        header: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          docId: id,
+        body: {
+          docId: id
+        }
+      }
 
-        })
-      })
+      const fetchDate = await fetchUpdateOrDeleteFnc(
+        data.action,
+        data.collection,
+        data.method,
+        data.header,
+        data.body
+      ) as { msg: string, sucess: boolean }
+
+      if (fetchDate.sucess) {
+        alert(fetchDate.msg)
+      } else {
+
+        alert(fetchDate.msg)
+      }
 
     } catch (error) {
       throw new Error(`Erro ao executar essa operação: ${error}`);

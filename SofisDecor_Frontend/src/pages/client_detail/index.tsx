@@ -123,17 +123,20 @@ const ClientDetail = () => {
             attr,
           }
         }
+        console.log(formData);
 
-        if ((await fetchSaveFnc(data.action, data.method, data.header, data.body)).sucess) {
+        const fetchDate = await fetchSaveFnc(data.action, data.method, data.header, data.body) as { msg: string, sucess: boolean }
+
+        if (fetchDate.sucess) {
 
           setFormData(formData)
           setLoading(false)
-          alert("Ação bem sucedida.")
-          return
+          alert(fetchDate.msg)
+
         } else {
 
+          alert(fetchDate.msg)
           setLoading(false)
-          alert('Não foi possível executar essa operação.')
           return
         }
 
@@ -176,7 +179,6 @@ const ClientDetail = () => {
       throw new Error('Não possível realizar essa operação: ' + error);
 
     }
-
   }
 
   const handleFormData = (e: FormEvent) => {

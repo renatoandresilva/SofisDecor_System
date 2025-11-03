@@ -52,9 +52,6 @@ export const schemes = {
         }),
         id: z.string().optional(),
         docId: z.string().optional(),
-        docs: z.object({
-
-        })
     }),
     _cost: z.object({
         category: z.string(),
