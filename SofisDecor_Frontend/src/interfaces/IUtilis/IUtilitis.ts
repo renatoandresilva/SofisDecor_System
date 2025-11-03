@@ -990,3 +990,77 @@ function isArrayOfObjects<T>(arr: T[]): boolean {
 
     return arr.every(item => typeof item === 'object' && item !== null && !Array.isArray(item));
 }
+
+export async function fetchSaveFnc(
+    path: string,
+    method: string,
+    header: globalThis.HeadersInit | undefined,
+    body: Object,
+): Promise<{ msg: string, sucess: boolean }> {
+
+    /* http://localhost:3000/sofisdecor/save */
+
+    let result: { msg: string, sucess: boolean } | null = null
+    console.log(`/sofisdecor/${path}`);
+
+    await fetch(`/sofisdecor/${path}`, {
+        method: method,
+        headers: header,
+        body: JSON.stringify(body)
+    })
+        .then(async (res) => {
+            const data = await res.json();
+
+            result = {
+                msg: data.msg,
+                sucess: data.ok
+            }
+        })
+        .catch((err) => {
+
+            result = {
+                msg: err.msg,
+                sucess: false
+            }
+
+        });
+
+    return result!
+
+}
+
+export async function fetchUpdateOrDeleteFnc(
+    action: string,
+    collection: string,
+    method: string,
+    header: globalThis.HeadersInit | undefined,
+    body: Object,
+): Promise<{ msg: string, sucess: boolean }> {
+
+    let result: { msg: string, sucess: boolean } | null = null
+
+    await fetch(`/sofisdecor/${action}/${collection}`, {
+        method: method,
+        headers: header,
+        body: JSON.stringify(body)
+    })
+        .then(async (res) => {
+            const data = await res.json();
+
+            result = {
+                msg: data.msg,
+                sucess: data.ok
+            }
+        })
+        .catch((err) => {
+
+            result = {
+                msg: err.msg,
+                sucess: false
+            }
+
+        });
+
+    return result!
+
+}

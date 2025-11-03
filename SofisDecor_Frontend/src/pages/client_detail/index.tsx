@@ -10,13 +10,14 @@ import {
 import {
   formatCellPhone,
   formatCEP,
-  updateDocFunc,
   getDocFnc,
   isEmpty,
   validarCPF,
   formatCPF,
   validarCNPJ,
   _addDocFnc,
+  fetchSaveFnc,
+  fetchUpdateOrDeleteFnc
 } from "../../interfaces/IUtilis/IUtilitis"
 import { db } from "../../service/dataConnection"
 import BtnSubmit from "../../components/btnSubmit/BtnSubmit"
@@ -26,9 +27,13 @@ import {
   Address,
   API_Struc
 } from "./ClientSetting"
-
+import { IData, Attr } from "../../interfaces/InterTypes/Types"
 import styles from './Client_detail.module.css'
 import '../../App.css'
+import { collection } from "firebase/firestore"
+
+/* TYPES OR INTERFACES */
+import { UpdateOrDelete } from "../../interfaces/InterTypes/Types"
 
 const address: Address = {
   zipcode: '',
@@ -59,7 +64,6 @@ const ClientDetail = () => {
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    console.log(formData);
 
     if (formData.name.trim() === '') {
       return alert('Campo Nome precisa ser preenchido.')
@@ -97,67 +101,74 @@ const ClientDetail = () => {
 
     try {
 
-      const attr = {
-        prop2: null, // ou os dados a comparar
-        objKey: "id",
-        left: ['address'], // propriedades que não devem ser verificadas
-        noVerify: true
-      };
-
-      fetch('/sofisdecor/save', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          collectionName: "client",
-          structure: formData,
-          attr
-        })
-      })
-        .then(async (res) => {
-          const data = await res.json();
-          if (res.ok) {
-            alert(data.msg);
-          } else {
-            alert("Erro: " + data.msg);
-          }
-        })
-        .catch((err) => {
-          alert("Erro de rede: " + err.message);
-        });
-
-
+      /* Saving record */
       if (location.state === null) {
 
-        const compare: KeyTest<ClientData, Address> = {
-          prop1: 'infoSaleValue' as keyof ClientData,
-          prop2: formInput.address as Address,
+        const attr: Attr = {
+          prop: address,
           objKey: 'id',
           left: ['address'],
-          noVerify: true,
+          noVerify: false
         }
 
-        _addDocFnc<ClientData>(formData, db, 'client', compare)
-          .then(resp => {
+        const data: IData = {
+          action: 'save',
+          method: 'POST',
+          header: {
+            "Content-Type": "application/json"
+          },
+          body: {
+            collectionName: "client",
+            structure: formData,
+            attr,
+          }
+        }
 
-            if (resp.isSaved) {
-              return alert(resp.msg)
-            }
+        if ((await fetchSaveFnc(data.action, data.method, data.header, data.body)).sucess) {
 
-            alert(resp.msg)
-          })
+          setFormData(formData)
+          setLoading(false)
+          alert("Ação bem sucedida.")
+          return
+        } else {
 
-        setFormData(formInput)
-        setAddressInfo(address)
-        setLoading(false)
-        return
+          setLoading(false)
+          alert('Não foi possível executar essa operação.')
+          return
+        }
+
       }
 
-      updateDocFunc(db, 'client', location.state, formData)
-      setFormData(formInput)
-      setAddressInfo(address)
-      setLoading(false)
+      /* Updateing record */
+      const data: UpdateOrDelete = {
+        action: 'update',
+        collection: 'client',
+        method: 'PUT',
+        header: {
+          "Content-Type": "application/json"
+        },
+        body: {
+          docI: location.state,
+          newData: formData,
+          onlyIfChanged: true
+        }
+      }
+
+      if ((await fetchUpdateOrDeleteFnc(
+        data.action,
+        data.collection,
+        data.method,
+        data.header,
+        data.body
+      )).sucess) {
+
+        alert('Atualização bem sucedida.')
+        navigate('/client')
+      } else {
+
+        alert('Erro ao atualizar o registro.')
+        setLoading(false)
+      }
 
     } catch (error) {
 

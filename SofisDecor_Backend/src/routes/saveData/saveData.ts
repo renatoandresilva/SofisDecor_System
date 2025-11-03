@@ -14,8 +14,6 @@ import type {
     InferScheme
 } from "../../utilities/schemes/dataSchemes";
 
-console.log("saveData router carregado");
-
 const app = express();
 const router = express.Router();
 
@@ -26,7 +24,7 @@ router.post('/save', async (req, res) => {
 
     const schema = schemes[collectionName as SchemeKey];
     if (!schema) {
-        return res.status(400).json({ msg: "Coleção inválida." });
+        return res.status(400).json({ msg: "Coleção inválida ou não adiconada ao schemes." });
     }
 
     const parsed = schema.safeParse(structure);

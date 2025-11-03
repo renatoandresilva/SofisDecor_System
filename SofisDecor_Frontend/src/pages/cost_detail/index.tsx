@@ -19,6 +19,7 @@ import {
 import { db } from '../../service/dataConnection'
 import {
     _addDocFnc,
+    fetchSaveFnc,
     updateDocFunc,
     getDocFnc,
     deleteFunc,
@@ -28,8 +29,11 @@ import {
     dateFormat_PT,
     getDatesFromDate,
     KeyTest,
+    fetchUpdateOrDeleteFnc,
 
 } from '../../interfaces/IUtilis/IUtilitis'
+import { IData, Attr, UpdateOrDelete } from '../../interfaces/InterTypes/Types'
+import { method } from 'lodash'
 
 const data_center: DatabaseStructure = {
     destiny: '',
@@ -93,61 +97,136 @@ const CostDetail = () => {
             /* Creating record*/
             if (location.state === null) {
 
-                const compare: KeyTest<FormDocument, DeterminateCost[]> = {
-                    prop1: 'docs' as keyof FormDocument,
-                    prop2: docForm.docs as DeterminateCost[],
+                const attr: Attr = {
+                    prop: ['docs'],
                     objKey: 'id',
-                    left: null,
-                    noVerify: false,
+                    left: ['docs'],
+                    noVerify: false
                 }
 
-                alert((await _addDocFnc<FormDocument, DeterminateCost[]>(docForm, db, '_cost', compare)).msg)
+                const data: IData = {
+                    action: 'save',
+                    method: 'POST',
+                    header: {
+                        "Content-Type": "application/json"
+                    },
+                    body: {
+                        collectionName: '_cost',
+                        structure: docForm,
+                        attr,
+                    }
+                }
 
-                setDocForm(doc_Form)
-                setDataCenter(data_center)
-                navigate('/cost')
-                setIsSave(false)
+                if ((await fetchSaveFnc(data.action, data.method, data.header, data.body)).sucess) {
+
+                    setDocForm(doc_Form)
+                    setDataCenter(data_center)
+                    setIsSave(false)
+                    alert("Ação bem sucedida.")
+                    return
+                } else {
+
+                    setIsSave(false)
+                    alert('Não foi possível executar essa operação.')
+                    return
+                }
+
+            }
+
+            /* Updateing record in case of array*/
+            if (Array.isArray(docForm.docs)) {
+
+                const data: UpdateOrDelete = {
+                    action: 'delete',
+                    collection: '_cost',
+                    method: 'DELETE',
+                    header: {
+                        "Content-Type": "application/json"
+                    },
+                    body: {
+                        docId: location.state,
+                    }
+                }
+
+                if ((await fetchUpdateOrDeleteFnc(
+                    data.action,
+                    data.collection,
+                    data.method,
+                    data.header,
+                    data.body
+                )).sucess) {
+
+                    const attr: Attr = {
+                        prop: ['docs'],
+                        objKey: 'id',
+                        left: ['docs'],
+                        noVerify: false
+                    }
+
+                    const _data: IData = {
+                        action: 'save',
+                        method: 'POST',
+                        header: {
+                            "Content-Type": "application/json"
+                        },
+                        body: {
+                            collectionName: "_cost",
+                            structure: docForm,
+                            attr,
+                        }
+                    }
+
+                    if (((await fetchSaveFnc(_data.action, _data.method, _data.header, _data.body)).sucess)) {
+
+                        alert('Atualização bem sucedida.')
+                        navigate('/cost')
+                    } else {
+
+                        alert('Erro ao atualizar.')
+                        setIsSave(false)
+                    }
+                }
+
                 return
             }
 
-            /* Updateing record*/
-            if (Array.isArray(docForm.docs)) {
-
-                if ((await deleteFunc(db, '_cost', location.state)).success) {
-
-                    const compare: KeyTest<FormDocument, DeterminateCost[]> = {
-                        prop1: 'docs' as keyof FormDocument,
-                        prop2: docForm.docs as DeterminateCost[],
-                        objKey: 'id',
-                        left: null,
-                        noVerify: false,
-                    }
-
-                    if ((await _addDocFnc<FormDocument>(docForm, db, '_cost', compare)).isSaved) {
-
-                        alert('Registro atualizado.')
-
-                        navigate('/cost')
-
-                        return
-                    }
-
-                    alert('Atualização falhou.')
-                    setIsSave(false)
-
-                    return
+            /* Updating if it isn't a array */
+            const data: UpdateOrDelete = {
+                action: 'update',
+                collection: 'cost',
+                method: 'PUT',
+                header: {
+                    "Content-Type": "application/json"
+                },
+                body: {
+                    docI: location.state,
+                    newData: docForm,
+                    onlyIfChanged: true
                 }
             }
 
-            alert((await updateDocFunc(db, '_cost', location.state, docForm)).msg)
-            navigate('/cost')
+            if ((await fetchUpdateOrDeleteFnc(
+                data.action,
+                data.collection,
+                data.method,
+                data.header,
+                data.body
+            )).sucess) {
+
+                alert('Atualização bem sucedida.')
+                navigate('/cost')
+            } else {
+
+                alert('Erro ao atualizar o registro.')
+                setIsSave(false)
+            }
 
         } catch (error) {
 
+            alert('Não foi possível salvar. Verifique os dados e tente novamente.')
             throw new Error("An error hapened: " + error);
 
         }
-
     }
 
     const handleFieldsToUpdate = (index: number) => {

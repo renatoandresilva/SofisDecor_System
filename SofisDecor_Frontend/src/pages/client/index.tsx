@@ -42,14 +42,23 @@ const Client = () => {
 
   const handleBtnActionsDelete = async (id: string) => {
 
+    if (!confirm('Esta ação não poderá ser desfeita. Continuar?')) return
+
     try {
-      if (confirm('Esta ação não poderá ser desfeita. Continuar?')) {
 
-        deleteFunc(db, 'client', id)
-      }
+      await fetch('/sofisdecor/delete/client', {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          docId: id,
+
+        })
+      })
+
     } catch (error) {
-      console.error(error);
-
+      throw new Error(`Erro ao executar essa operação: ${error}`);
     }
   }
 
@@ -205,7 +214,6 @@ const Client = () => {
           }
         </ul>
       </div>
-
     </div>
   )
 }

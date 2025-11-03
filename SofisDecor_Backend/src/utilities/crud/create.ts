@@ -80,7 +80,7 @@ export const addDocFnc = async <T extends object, S = unknown>(
 
                             } else {
 
-                                /* If it is an array of other type */
+                                /* If it is an simple array */
                                 const _struc: { [key: string]: any } = structure;
                                 const struc = Object.keys(structure)
                                 const strucKey = struc.find(el => el === prop)
